@@ -3,6 +3,10 @@ var router = express.Router();
 var Space = require("../models/space").Space;
 var User = require("../models/user").User;
 
+function authenticate(name, fn) {
+  var user = User.findOne({username: name});
+  if (!user) return fn(new Error('cannot find user'));
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -54,15 +58,31 @@ router.get('/users/new', function(req, res) {
   res.render('users/new', { title: 'Sign Up', user: ''});
 });
 
-router.post('/signup', function(req, res) {
-  var userNew = req.body.username;
-  var temp = new User({username: userNew});
-  console.log(userNew);
-  temp.save(function() {
-    if (userNew.length === 0) {
-      res.redirect('/signup');
+// router.post('/signup', function(req, res) {
+//   var userNew = req.body.username;
+//   var temp = new User({username: userNew});
+//   temp.save(function() {
+//     if (userNew.length === 0) {
+//       res.redirect('/signup');
+//     } else {
+//       res.redirect('spaces/all');
+//     };
+//   });
+// });
+
+router.post('/signup', function(req,res) {
+  console.log(0);
+  authenticate(req.body.username, function(err,user) {
+    console.log(1);
+    if(user){
+      req.session.regenerate(function() {
+        req.session.user = user;
+        req.session.success = 'Authenticated as' + 'user.username';
+        res.redirect('/spaces/all');
+      });
     } else {
-      res.redirect('spaces/all');
+      req.session.error = 'Authentication failed';
+      res.redirect('/users/new')
     };
   });
 });
