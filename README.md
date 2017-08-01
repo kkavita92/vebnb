@@ -10,7 +10,14 @@ Pritchard et al.(2017), Retro - Address to Sakitalotte, Couch, Makers
 
 ```
 
-###Packages used:
+## How to Run
+
+- clone this repo
+- run `sudo mongod` in the terminal
+- run `node app.js` in a separate terminal
+- visit http://localhost:3002 in your web browser
+
+## Packages used:
 - Database Stucture
     - MongoDB
     - Mongoose
@@ -25,7 +32,7 @@ Pritchard et al.(2017), Retro - Address to Sakitalotte, Couch, Makers
   - EJS (for HTML files)
   - Cookie-Parser
 
-###User Journey
+## User Journey
 
 |Route|Functionality|
 |-----|-------------|
@@ -38,7 +45,7 @@ Pritchard et al.(2017), Retro - Address to Sakitalotte, Couch, Makers
 
 Note: Currently there is no distinction between Guest and Owner users
 
-###User Stories   
+## User Stories   
 
 1.
 ```
@@ -82,7 +89,7 @@ So I don't double-book any space,
 I want reserved spaces not to be available
 ```
 
-###Future Features
+## Future Features
 
 7.
 ```
