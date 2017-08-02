@@ -62,7 +62,6 @@ router.post('/confirmrequest', function(req, res) {
 });
 
 router.post('/confirmbooking', function(req, res) {
-	console.log(req.body.id)
 	Space.update({ _id: req.body.id }, {$set: {booked: true}}).then(function() {
 		res.render('confirm', { title: 'Confirmation',
                             user: req.session.user,
@@ -71,6 +70,7 @@ router.post('/confirmbooking', function(req, res) {
 });
 
 router.post('/spaces', function(req, res) {
+	if(req.body.image === '') { req.body.image = '/images/defaultHouse.jpg' }
   var temp = new Space({name: req.body.name,
 												address: req.body.address,
 												price: req.body.price,
@@ -89,7 +89,6 @@ router.get('/spaces/requested', function(req, res, next) {
 	var requestedSpaces = [];
 	Space.find({requested: true}, function(err,spaces) {
 		requestedSpaces = spaces;
-  	console.log(spaces);
 		setTimeout(function() {}, 30000);
 	}).then(function(spaces) {
 		res.render('spaces/requested', { title: 'Listings Requested',
