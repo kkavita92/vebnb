@@ -16,9 +16,6 @@ var users = require('./routes/users');
 
 var app = express();
 
-mongoose.Promise = require('bluebird')
-//mongoose.connect('mongodb://10.7.0.3:27107/data/db');
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

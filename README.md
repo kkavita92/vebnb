@@ -13,7 +13,7 @@ Pritchard et al.(2017), Retro - Address to Sakitalotte, Couch, Makers
 ## How to Run
 
 - clone this repo
-- run `sudo mongod` in the terminal
+- run `sudo mongod` in the terminal (might ask for your laptop password)
 - run `node app.js` in a separate terminal
 - visit http://localhost:3002 in your web browser
 
