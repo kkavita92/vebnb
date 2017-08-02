@@ -1,4 +1,4 @@
-#VeBnB - Makers Academy Week 6 Project
+# VeBnB - Makers Academy Week 6 Project
 
 Mission Statement - A home away from home for every vegan
 
@@ -31,6 +31,7 @@ Pritchard et al.(2017), Retro - Address to Sakitalotte, Couch, Makers
   - Body-Parser
   - EJS (for HTML files)
   - Cookie-Parser
+
 
 ## User Journey
 
